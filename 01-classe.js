@@ -1,0 +1,4 @@
+class NomeDaClasse {
+    constructor(parâmetros) {
+    }
+}
