@@ -22,6 +22,6 @@ class Guerreiro extends Personagem {
         this.arma = arma;
     }
     atacar() {
-        console.log(`${this.nome} qtqcq com${this.arma}!`);
+        console.log(`${this.nome} ataca com a ${this.arma}!`);
     }
 }
