@@ -25,3 +25,14 @@ class Guerreiro extends Personagem {
         console.log(`${this.nome} ataca com a ${this.arma}!`);
     }
 }
+
+//Class Mago que herda de Personagem
+class Mago extends Personagem {
+    constructor(nome, vida, fetico) {
+        super(nome, vida);
+        this.fetico = fetico;
+    }
+    atacar() {
+        console.log(`${this.nome} lança ${this.feitico}!`);
+    }
+}
