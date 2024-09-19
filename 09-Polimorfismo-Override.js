@@ -48,3 +48,15 @@ class Mago extends Personagem {
         console.log(`${this.nome} dispara flecha ${this.tipoFlecha}!`);
     }
 }
+
+//Criando instâncias de Guerreiro, Mago e Arqueiro
+const guerreiro = new Guerreiro("Leonardo", 100, "espada");
+guerreiro.atacar(); //Saída: Leonardo ataca com a espada!
+guerreiro.receberDano(20); //Saída: Leonardo recebeu 20 de dano. Vida restante: 80
+
+const mago = new Mago("Marlin", 80, "bola de fogo");
+mago.atacar(); //Saída: Merlin recebeu 15 de dano. Vida restante: 65
+
+const arqueiro = new Arqueiro("Legolas", 90, "explosiva");
+arqueiro.atacar(); //Saída: Legolas dispara flechas explosiva!
+arqueiro.receberDano(10); //Saída: Legolas recebeu 10 de dan0. Vida restante: 80
