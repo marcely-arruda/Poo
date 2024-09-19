@@ -14,3 +14,14 @@ class Personagem {
         console.log(`${this.nome} recebeu ${dano} de dano. Vida restante: ${this.vida}`);
     }
 }
+
+//Class Guerreiro que herda de Personagem
+class Guerreiro extends Personagem {
+    constructor(nome, vida, arma) {
+        super(nome, vida);
+        this.arma = arma;
+    }
+    atacar() {
+        console.log(`${this.nome} qtqcq com${this.arma}!`);
+    }
+}
