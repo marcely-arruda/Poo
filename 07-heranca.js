@@ -37,3 +37,13 @@ class Professor extends Funcionario {
         super(nome, idade, altura, peso, salario);
     }
 }
+
+//Criando objetos aluno, diretor e professor
+const aluno = new Estudante("João", 16, 1.70, 70, "Programação de Jogos Digitais");
+const diretor = new Diretor("Sérgio", 45, 1.65, 65, 3000);
+const professor = new Professor("Marcely", 17, 1.75, 80, 600000);
+
+//Montando no console a saída
+console.log(aluno); //Saída: Estudante {nome: "João", idade: 16, altura:1.70, peso:70, curso:"Programação de Jogos Digitais"}
+console.log(diretor); //Saída: Diretor {nome:"Sérgio", idade: 45, altura:1.65, peso:65, salario: 3000}
+console.log(professor); //Saída Professor {nome:"Marcely", idade: 17, altura: 1.75, peso: 80, salario: 600000}
