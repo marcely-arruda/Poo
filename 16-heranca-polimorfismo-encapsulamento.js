@@ -143,6 +143,25 @@ class Personagem {
     //Chamando os métodos
     mecanico.receberDano(30); //Método sobrescrito
     mecanico.construirTorrent(); //Método específico
+
+    console.log("----------------------------------------------------------------");
+    console.log("Modificando os objetos usando setters:");
+    console.log("----------------------------------------------------------------");
+
+    //Modificando o objeto assasino usando setters
+    assassino.nome = "Raven"
+    console.log(`Nome modificado: ${assassino.nome}`);
+    assassino.atacar();
+    
+    //Modificando o objeto paladino usando setters
+    paladino.vida = 150;
+    console.log(`Vida modificada: ${paladino.vida}`);
+    paladino.defesa();
+
+    //Modificando o objeto mecanico usando setters
+    mecanico.mana = 60;
+    console.log(`Mana modificada: ${mecanico.mana}`);
+    mecanico.receberDano(50);
   
 
 
