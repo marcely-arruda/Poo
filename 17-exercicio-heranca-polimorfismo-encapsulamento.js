@@ -1,6 +1,6 @@
-//Classe base Pessoa
+// Classe base Pessoa
 class Pessoa {
-  //Encapsulando os atributos com #, tornando-os privados
+  // Encapsulando os atributos com #, tornando-os privados
   #nome;
   #idade;
   #sexo;
@@ -11,8 +11,20 @@ class Pessoa {
   #estado;
   #telefone;
   #cidade;
-  //Método Construtor
-  constructor(nome, idade, sexo, altura, peso, nacionalidade, profissao, estado, telefone, cidade) {
+
+  // Método Construtor
+  constructor(
+    nome,
+    idade,
+    sexo,
+    altura,
+    peso,
+    nacionalidade,
+    profissao,
+    estado,
+    telefone,
+    cidade
+  ) {
     this.#nome = nome;
     this.#idade = idade;
     this.#sexo = sexo;
@@ -24,84 +36,89 @@ class Pessoa {
     this.#telefone = telefone;
     this.#cidade = cidade;
   }
-  //Métodos Getters e Setters
-  //Métodos Getter e Setter para o atributo nome
+
+  // Métodos Getters e Setters
   get nome() {
     return this.#nome;
   }
+
   set nome(nome) {
     this.#nome = nome;
   }
-  //Métodos Getter e Setter para o atributo idade
+
   get idade() {
     return this.#idade;
   }
+
   set idade(idade) {
     this.#idade = idade;
   }
-  //Métodos Getter e Setter para o atributo sexo
+
   get sexo() {
     return this.#sexo;
   }
+
   set sexo(sexo) {
     this.#sexo = sexo;
   }
-  //Métodos Getter e Setter para o atributo altura
+
   get altura() {
     return this.#altura;
   }
+
   set altura(altura) {
     this.#altura = altura;
   }
-  //Métodos Getter e Setter para o atributo peso
+
   get peso() {
     return this.#peso;
   }
+
   set peso(peso) {
     this.#peso = peso;
   }
- 
-  //Métodos Getter e Setter para o atributo nacionalidade
+
   get nacionalidade() {
     return this.#nacionalidade;
   }
+
   set nacionalidade(nacionalidade) {
     this.#nacionalidade = nacionalidade;
-    }
-    
-//Métodos Getter e Setter para o atributo profissao
+  }
+
   get profissao() {
     return this.#profissao;
   }
+
   set profissao(profissao) {
     this.#profissao = profissao;
-    }
+  }
 
- //Métodos Getter e Setter para o atributo estado
   get estado() {
     return this.#estado;
   }
+
   set estado(estado) {
     this.#estado = estado;
-    }
+  }
 
-//Métodos Getter e Setter para o atributo telefone
   get telefone() {
     return this.#telefone;
   }
+
   set telefone(telefone) {
     this.#telefone = telefone;
-    }
-
-//Métodos Getter e Setter para o atributo cidade
-  get cidade() {
-    return this.cidade;
   }
+
+  get cidade() {
+    return this.#cidade;
+  }
+
   set cidade(cidade) {
     this.#cidade = cidade;
-    }
-}
-  //Simulação de sobrecarga
+  }
+
+  // Simulação de sobrecarga
   fazerAcao(...args) {
     if (args.length === 0) {
       console.log(`${this.nome} realizou uma ação normal!`);
@@ -113,115 +130,384 @@ class Pessoa {
       console.log("Número inválido de argumentos.");
     }
   }
-  defesa() {
-    console.log(
-      `${this.nome} se defendeu com ${this.#nivel * 2} pontos de defesa!`
-    );
+
+  contato() {
+    console.log(`Meu telefone é ${this.telefone}!`);
   }
 
-  receberDano(dano) {
-    this.vida -= dano;
+  nacionalidade() {
     console.log(
-      `${this.nome} recebeu ${dano} de dano. Vida restante: ${this.vida}`
+      `Minha nacionalidade é ${this.nacionalidade} e eu tenho muito orgulho disso!`
+    );
+  }
+}
+
+// Classe derivada - FazerAniversario
+class FazerAniversario extends Pessoa {
+  #dataDeAniversario;
+  #bolo;
+
+  constructor(
+    nome,
+    idade,
+    sexo,
+    altura,
+    peso,
+    nacionalidade,
+    profissao,
+    estado,
+    telefone,
+    cidade,
+    dataDeAniversario,
+    bolo
+  ) {
+    super(
+      nome,
+      idade,
+      sexo,
+      altura,
+      peso,
+      nacionalidade,
+      profissao,
+      estado,
+      telefone,
+      cidade
+    );
+    this.#dataDeAniversario = dataDeAniversario; // Atributo específico
+    this.#bolo = bolo; // Atributo específico
+  }
+
+  // Métodos Getter e Setter para dataDeAniversario
+  get dataDeAniversario() {
+    return this.#dataDeAniversario;
+  }
+
+  set dataDeAniversario(dataDeAniversario) {
+    this.#dataDeAniversario = dataDeAniversario;
+  }
+
+  // Métodos Getter e Setter para bolo
+  get bolo() {
+    return this.#bolo;
+  }
+
+  set bolo(bolo) {
+    this.#bolo = bolo;
+  }
+
+  // Sobreescrevendo o método fazerAcao
+  fazerAcao() {
+    console.log(`${this.nome} está correndo rápido!`);
+  }
+
+  // Método específico
+  diaDoAniversario() {
+    console.log(
+      `${this.nome}, a sua data de aniversário é ${this.dataDeAniversario}.`
     );
   }
 }
 
-//Classe derivada - Assasino
-class Assassino extends Personagem {
-  constructor(nome, nivel, vida, mana, furtividade) {
-    super(nome, "Assasino", nivel, vida, mana);
-    this.furtividade = furtividade; //Atributo específico
+// Classe derivada - Apresentar
+class Apresentar extends Pessoa {
+  #documentoIdentidade;
+  #perdeuPeso;
+
+  constructor(
+    nome,
+    idade,
+    sexo,
+    altura,
+    peso,
+    nacionalidade,
+    profissao,
+    estado,
+    telefone,
+    cidade,
+    documentoIdentidade,
+    perdeuPeso
+  ) {
+    super(
+      nome,
+      idade,
+      sexo,
+      altura,
+      peso,
+      nacionalidade,
+      profissao,
+      estado,
+      telefone,
+      cidade
+    );
+    this.#documentoIdentidade = documentoIdentidade; // Atributo específico
+    this.#perdeuPeso = perdeuPeso; // Atributo específico
   }
 
-  //Sobreescrevendo o método atacar
-  atacar() {
+  // Métodos Getter e Setter para documentoIdentidade
+  get documentoIdentidade() {
+    return this.#documentoIdentidade;
+  }
+
+  set documentoIdentidade(documentoIdentidade) {
+    this.#documentoIdentidade = documentoIdentidade;
+  }
+
+  // Métodos Getter e Setter para perdeuPeso
+  get perdeuPeso() {
+    return this.#perdeuPeso;
+  }
+
+  set perdeuPeso(perdeu) {
+    this.#perdeuPeso = perdeu;
+  }
+
+  // Sobreescrevendo o método fazerAcao
+  fazerAcao() {
     console.log(
-      `${this.nome} ataca silenciosamente com dano adicional pela furtividade!`
+      `${this.nome} parou de correr e perdeu ${this.#perdeuPeso} kg!`
     );
   }
 
-  //Método específico
-  usarFurtividade() {
+  // Método específico
+  kgespecifico() {
+    console.log(`${this.nome} perdeu especificamente ${this.#perdeuPeso} kg!`);
+  }
+}
+
+// Classe derivada - Artista
+class Artista extends Pessoa {
+  #estilo;
+  #inspiracao;
+
+  constructor(
+    nome,
+    idade,
+    sexo,
+    altura,
+    peso,
+    nacionalidade,
+    profissao,
+    estado,
+    telefone,
+    cidade,
+    estilo,
+    inspiracao
+  ) {
+    super(
+      nome,
+      idade,
+      sexo,
+      altura,
+      peso,
+      nacionalidade,
+      profissao,
+      estado,
+      telefone,
+      cidade
+    );
+    this.#estilo = estilo; // Atributo específico
+    this.#inspiracao = inspiracao; // Atributo específico
+  }
+
+  // Métodos Getter e Setter para estilo
+  get estilo() {
+    return this.#estilo;
+  }
+
+  set estilo(estilo) {
+    this.#estilo = estilo;
+  }
+
+  // Métodos Getter e Setter para inspiracao
+  get inspiracao() {
+    return this.#inspiracao;
+  }
+
+  set inspiracao(inspiracao) {
+    this.#inspiracao = inspiracao;
+  }
+
+  // Sobreescrevendo o método fazerAcao
+  fazerAcao() {
     console.log(
-      `${this.nome} usa sua furtividade de nível ${this.furtividade} para se esconder!`
+      `${this.nome} ama pintar, e o seu estilo de pintura é ${this.#estilo}.`
+    );
+  }
+
+  // Método específico
+  exibirObra() {
+    console.log(
+      `Minha inspiração é ${this.inspiracao}, e eu exibo minhas obras no museu próximo de casa!`
     );
   }
 }
-//Classe derivada - Paladino
-class Paladino extends Personagem {
-  constructor(nome, nivel, vida, mana, fe) {
-    super(nome, "Paladino", nivel, vida, mana);
-    this.fe = fe; //Atributo específico
+
+// Classe derivada - Professor
+class Professor extends Pessoa {
+  #materia;
+  #turma;
+
+  constructor(
+    nome,
+    idade,
+    sexo,
+    altura,
+    peso,
+    nacionalidade,
+    profissao,
+    estado,
+    telefone,
+    cidade,
+    materia,
+    turma
+  ) {
+    super(
+      nome,
+      idade,
+      sexo,
+      altura,
+      peso,
+      nacionalidade,
+      profissao,
+      estado,
+      telefone,
+      cidade
+    );
+    this.#materia = materia; // Atributo específico
+    this.#turma = turma; // Atributo específico
   }
-  //Sobreescrevendo o método defesa
-  defesa() {
+
+  // Métodos Getter e Setter para materia
+  get materia() {
+    return this.#materia;
+  }
+
+  set materia(materia) {
+    this.#materia = materia;
+  }
+
+  // Métodos Getter e Setter para turma
+  get turma() {
+    return this.#turma;
+  }
+
+  set turma(turma) {
+    this.#turma = turma;
+  }
+
+  // Sobreescrevendo o método fazerAcao
+  fazerAcao() {
     console.log(
-      `${this.nome} se defendeu com o escudo sagrado, absorvendo mais dano com base na fé (${this.fe})!`
+      `Planejei rapidamente a matéria de ${this.#materia} para os meus alunos!`
     );
   }
 
-  //Método específico
-  curar() {
-    console.log(`{this.nome} usa sua fé para curar si mesmo ou aliados!`);
-  }
-}
-
-//Classe derivada - Mecanico
-class Mecanico extends Personagem {
-  constructor(nome, nivel, vida, mana, engenharia) {
-    super(nome, "Mecanico", nivel, vida, mana);
-    this.engenharia = engenharia; //Atributo específico
-  }
-
-  //Sobreescrevendo o método receberDano
-  receberDano(dano) {
-    const danoReduzido = dano - this.engenharia;
-    super.receberDano(danoReduzido);
+  // Método específico
+  ensinar() {
     console.log(
-      `$(this.nome) usou sua engenharia para reduzir o dano em $(this.engenharia).`
+      `A minha turma ${this.turma} aprendeu rapidamente a matéria que ensinei a eles.`
     );
   }
-
-  //Método específico
-  construirTorre() {
-    console.log(`${this.nome} construi uma torre defensiva!`);
-  }
 }
 
-//Criando instância da classe derivada Assasino
-const assassino = new Assassino("Luna Sombria", 10, 100, 50, 8);
-//Chamando os métodos
-assassino.atacar(); //Método sobscrito
-assassino.usarFurtividade(); //Método específico
+// Criando instância da classe derivada FazerAniversario
+const aniversariante = new FazerAniversario(
+  "Marcely",
+  17,
+  "feminino",
+  1.8,
+  80,
+  "brasileira",
+  "cozinheira",
+  "MT",
+  6599738576,
+  "Cuiabá",
+  "10/10",
+  "chocolate"
+);
+// Chamando os métodos do aniversariante
+aniversariante.fazerAcao(); // Método sobrescrito
+aniversariante.diaDoAniversario(); // Método específico
 
-//Criando instância da classe derivada Paladino
-const paladino = new Paladino("Sir Lancelot", 12, 120, 70, 15);
-//Chamando os métodos
-paladino.defesa(); //Método subscrito
-paladino.curar(); //Método específico
+// Criando instância da classe derivada Apresentar
+const apresentante = new Apresentar(
+  "Marcely",
+  17,
+  "feminino",
+  1.8,
+  81,
+  "brasileira",
+  "ajudante",
+  "MT",
+  65,
+  "Cuiabá",
+  "ssp",
+  15
+);
+// Chamando os métodos do apresentante
+apresentante.fazerAcao(); // Método sobrescrito
+apresentante.kgespecifico(); // Método específico
 
-//Criando instância da classe derivada Mecanico
-const mecanico = new Mecanico("Roberto das Engrenagens", 8, 90, 40, 5);
-//Chamando os métodos
-mecanico.receberDano(30); //Método sobrescrito
-mecanico.construirTorrent(); //Método específico
+// Criando instância da classe derivada Artista
+const pintor = new Artista(
+  "Marcely",
+  17,
+  "feminino",
+  1.85,
+  70,
+  "brasileira",
+  "empresária",
+  "MT",
+  6578356583,
+  "Cuiabá",
+  "iluminador",
+  "Meu pai"
+);
+// Chamando os métodos do pintor
+pintor.fazerAcao(); // Método sobrescrito
+pintor.exibirObra(); // Método específico
+
+// Criando instância da classe derivada Professor
+const historiador = new Professor(
+  "Marcely",
+  19,
+  "feminino",
+  1.65,
+  91,
+  "brasileira",
+  "orientadora",
+  "MT",
+  65788375,
+  "Cuiabá",
+  "História",
+  "oitavo ano"
+);
+// Chamando os métodos do professor
+historiador.fazerAcao(); // Método sobrescrito
+historiador.ensinar(); // Método específico
 
 console.log("----------------------------------------------------------------");
 console.log("Modificando os objetos usando setters:");
 console.log("----------------------------------------------------------------");
 
 //Modificando o objeto assasino usando setters
-assassino.nome = "Raven";
-console.log(`Nome modificado: ${assassino.nome}`);
-assassino.atacar();
+aniversariante.nome = "Marcely Arruda";
+console.log(`Nome modificado: ${aniversariante.nome}`);
+aniversariante.fazerAcao();
+aniversariante.diaDoAniversario();
 
 //Modificando o objeto paladino usando setters
-paladino.vida = 150;
-console.log(`Vida modificada: ${paladino.vida}`);
-paladino.defesa();
+apresentante.idade = "Fortaleza"
+console.log(`Cidade modificada: ${apresentante.cidade}`);
+apresentante.fazerAcao()
+;
 
 //Modificando o objeto mecanico usando setters
-mecanico.mana = 60;
+pintor.mana = 60;
+console.log(`Mana modificada: ${mecanico.mana}`);
+mecanico.receberDano(50);
+
+//Modificando o objeto mecanico usando setters
+historiador.mana = 60;
 console.log(`Mana modificada: ${mecanico.mana}`);
 mecanico.receberDano(50);
